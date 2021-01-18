@@ -6,7 +6,7 @@ class LifeCycleSample extends Component {
     color: null
   };
 
-  myRef = null;
+  // myRef = null;
 
   constructor(props) {
     super(props);
