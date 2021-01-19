@@ -9,7 +9,7 @@ import Info from "./info";
 // import EventPracticeHook from "./EventPracticeHook";
 // import Say from "./hookSample";
 // import MyComponent, { triple } from "./MyComponent";
-// import Counter from "./Counter";
+import Counter from "./Counter";
 import "./App.css";
 
 const App = () => {
@@ -28,8 +28,9 @@ const App = () => {
       <ErrorBoundary>
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <button onClick={handleOnClick}>{visible.buttonValue}</button>
-          {visible.bool && <Info></Info>}
+          {/* <button onClick={handleOnClick}>{visible.buttonValue}</button>
+          {visible.bool && <Info></Info>} */}
+          <Counter></Counter>
         </div>
       </ErrorBoundary>
     </>

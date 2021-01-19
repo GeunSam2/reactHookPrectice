@@ -1,15 +1,38 @@
-import { useState } from "react";
+import { useReducer } from "react";
+
+// const reducer = (state, action) => {
+//   switch (action.type) {
+//     case "INCREAMENT":
+//       console.log("증가");
+//       return { value: state.value + 1 };
+//     case "DECREAMENT":
+//       return { value: state.value - 1 };
+//     default:
+//       return state;
+//   }
+// };
+
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "INCREMENT":
+      return { value: state.value + 1 };
+    case "DECREMENT":
+      return { value: state.value - 1 };
+    default:
+      return state;
+  }
+};
 
 const Counter = () => {
-  const [value, setValue] = useState(0);
+  const [state, dispatch] = useReducer(reducer, { value: 0 });
 
   return (
     <div>
       <p>
-        현재 카운터 값은 <b>{value}</b>입니다.
+        현재 카운터 값은 <b>{state.value}</b>입니다.
       </p>
-      <button onClick={() => setValue(value + 1)}>더하기</button>
-      <button onClick={() => setValue(value - 1)}>빼 기</button>
+      <button onClick={() => dispatch({ type: "INCREMENT" })}>더하기</button>
+      <button onClick={() => dispatch({ type: "DECREMENT" })}>빼 a기</button>
     </div>
   );
 };
