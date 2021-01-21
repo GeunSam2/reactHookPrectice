@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useCallback, useRef } from "react";
 
 const Average = () => {
   const [averageDic, setAverageDic] = useState({
@@ -6,9 +6,13 @@ const Average = () => {
     numList: []
   });
 
+  const refVar = useRef(null);
+
   const handleOnChange = (input) => {
     setAverageDic({ ...averageDic, number: input.target.value });
   };
+
+  const handleOnChangeCallback = useCallback(handleOnChange, []);
 
   const handleOnClick = () => {
     setAverageDic({
@@ -17,10 +21,13 @@ const Average = () => {
     });
   };
 
+  const handleOnClickCallback = useCallback(handleOnClick, [averageDic]);
+
   const handleOnClickNum = (index) => {
     const numList = averageDic.numList;
     numList.splice(index, 1);
     setAverageDic({ ...averageDic, numList });
+    refVar.current.focus();
   };
 
   const getAverage = (numList) => {
@@ -42,9 +49,10 @@ const Average = () => {
         placeholder="숫자를 입력하세요."
         type="number"
         value={averageDic.number}
-        onChange={handleOnChange}
+        onChange={handleOnChangeCallback}
+        ref={refVar}
       ></input>
-      <button onClick={handleOnClick}>평균구하기</button>
+      <button onClick={handleOnClickCallback}>평균구하기</button>
       <div>
         <ul>
           {averageDic.numList.map((num, index) => (
