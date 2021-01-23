@@ -1,7 +1,7 @@
 import logo from "./logo.svg";
 import { useState } from "react";
 import ErrorBoundary from "./ErrorBoundary";
-import Average from "./Average";
+import Average from "./CustomAverage";
 // import Info from "./info";
 // import LifeCycleSample from "./LifeCycleSample";
 // import LiterationSample from "./LiterationSample";
