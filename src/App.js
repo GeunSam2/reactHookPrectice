@@ -1,5 +1,5 @@
 import logo from "./logo.svg";
-import { useState } from "react";
+// import { useState } from "react";
 import ErrorBoundary from "./ErrorBoundary";
 import Average from "./CustomAverage";
 // import Info from "./info";

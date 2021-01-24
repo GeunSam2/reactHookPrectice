@@ -12,7 +12,7 @@ const reducer = (state, action) => {
       };
     case "CLICKNUM":
       console.log("CLICKNUM");
-      const numList = state.numList;
+      const numList = [...state.numList];
       console.log("지우기 전 : ", String(numList));
       numList.splice(action.index, 1);
       console.log("지운 후 : ", String(numList));
@@ -68,7 +68,7 @@ const Average = () => {
 
   const refVar = useRef(null);
 
-  const avg = useMemo(() => getAverage(states.numList), [states]);
+  const avg = useMemo(() => getAverage(states.numList), [states.numList]);
 
   return (
     <div>
