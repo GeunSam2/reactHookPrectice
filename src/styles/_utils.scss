@@ -1,0 +1,28 @@
+$red: rgb(255, 0, 0);
+$orange: rgb(255, 136, 0);
+$yellow: rgb(255, 196, 0);
+$green: rgb(44, 185, 1);
+$blue: rgb(0, 132, 255);
+$indigo: rgb(38, 0, 255);
+$violet: rgb(162, 0, 255);
+
+@mixin keyFrameBig($size) {
+    @keyframes big {
+        from {
+            width: 0px;
+        }
+        to {
+            width: #{$size}px;
+        }
+    }
+}
+
+@mixin square($size) {
+    $calculated: 32px * $size;
+    @include keyFrameBig($calculated);
+    width: $calculated;
+    height: 32px;
+    animation-name: big;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+}

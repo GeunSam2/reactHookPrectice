@@ -1,4 +1,5 @@
 import { useMemo, useRef, useReducer } from "react";
+import "./styles/sassComponent.scss";
 
 const reducer = (state, action) => {
   switch (action.funcName) {
@@ -42,8 +43,20 @@ const GetAverage = (initalForm) => {
     dispatch({ funcName: "CLICKNUM", index, refVar });
   };
 
+  const handleOnKeyPressCust = (input) => {
+    if (input.key === "Enter") {
+      dispatch({ funcName: "CLICK" });
+    }
+  };
+
   // eslint-disable-next-line no-sequences
-  return [state, handleOnChangeCust, handleOnClickCust, handleOnClickNumCust];
+  return [
+    state,
+    handleOnChangeCust,
+    handleOnClickCust,
+    handleOnClickNumCust,
+    handleOnKeyPressCust
+  ];
 };
 
 const getAverage = (numList) => {
@@ -55,12 +68,33 @@ const getAverage = (numList) => {
   return numSum / numList.length;
 };
 
+const retunColor = (num) => {
+  let color = "box ";
+  if (num <= 30) {
+    color = color + "red";
+  } else if (num <= 70) {
+    color = color + "orange";
+  } else if (num <= 150) {
+    color = color + "yellow";
+  } else if (num <= 300) {
+    color = color + "green";
+  } else if (num <= 500) {
+    color = color + "blue";
+  } else if (num <= 1000) {
+    color = color + "indigo";
+  } else {
+    color = color + "violet";
+  }
+  return color;
+};
+
 const Average = () => {
   const [
     states,
     handleOnChangeCust,
     handleOnClickCust,
-    handleOnClickNumCust
+    handleOnClickNumCust,
+    handleOnKeyPressCust
   ] = GetAverage({
     number: "",
     numList: []
@@ -77,23 +111,23 @@ const Average = () => {
         type="number"
         value={states.number}
         onChange={handleOnChangeCust}
+        onKeyPress={handleOnKeyPressCust}
         ref={refVar}
       ></input>
       <button onClick={handleOnClickCust}>평균구하기</button>
-      <div>
+      <div className="numList">
         <ul>
           {states.numList.map((num, index) => (
-            <li
-              key={index}
-              onDoubleClick={() => handleOnClickNumCust(index, refVar)}
-            >
-              {index}번째 값: {num}
-            </li>
+            <div className="SassComponent" key={index}>
+              <li onDoubleClick={() => handleOnClickNumCust(index, refVar)}>
+                {index}번째 값: {num}
+              </li>
+              <div className={retunColor(num)}></div>
+            </div>
           ))}
         </ul>
-        <h1>평균값 : {avg}</h1>
-        {/* <h1>평균값2 : {getAverage(states.numList)}</h1> */}
       </div>
+      <h1>평균값 : {avg}</h1>
     </div>
   );
 };
