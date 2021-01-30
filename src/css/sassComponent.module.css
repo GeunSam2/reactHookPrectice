@@ -1,0 +1,103 @@
+.numList {
+  width: 600px; }
+
+.SassComponent {
+  display: grid;
+  grid-template-columns: 250px 1fr; }
+  .SassComponent .box {
+    background: #ff2600;
+    cursor: progress;
+    transition: all 0.3s ease-in; }
+    .SassComponent .box.red {
+      background: red;
+      width: 32px;
+      height: 32px;
+      animation-name: big;
+      animation-duration: 0.5s;
+      animation-timing-function: linear; }
+
+@keyframes big {
+  from {
+    width: 0px; }
+  to {
+    width: 32pxpx; } }
+    .SassComponent .box.orange {
+      background: #ff8800;
+      width: 64px;
+      height: 32px;
+      animation-name: big;
+      animation-duration: 0.5s;
+      animation-timing-function: linear; }
+
+@keyframes big {
+  from {
+    width: 0px; }
+  to {
+    width: 64pxpx; } }
+    .SassComponent .box.yellow {
+      background: #ffc400;
+      width: 96px;
+      height: 32px;
+      animation-name: big;
+      animation-duration: 0.5s;
+      animation-timing-function: linear; }
+
+@keyframes big {
+  from {
+    width: 0px; }
+  to {
+    width: 96pxpx; } }
+    .SassComponent .box.green {
+      background: #2cb901;
+      width: 128px;
+      height: 32px;
+      animation-name: big;
+      animation-duration: 0.5s;
+      animation-timing-function: linear; }
+
+@keyframes big {
+  from {
+    width: 0px; }
+  to {
+    width: 128pxpx; } }
+    .SassComponent .box.blue {
+      background: #2069ad;
+      width: 160px;
+      height: 32px;
+      animation-name: big;
+      animation-duration: 0.5s;
+      animation-timing-function: linear; }
+
+@keyframes big {
+  from {
+    width: 0px; }
+  to {
+    width: 160pxpx; } }
+    .SassComponent .box.indigo {
+      background: #2600ff;
+      width: 192px;
+      height: 32px;
+      animation-name: big;
+      animation-duration: 0.5s;
+      animation-timing-function: linear; }
+
+@keyframes big {
+  from {
+    width: 0px; }
+  to {
+    width: 192pxpx; } }
+    .SassComponent .box.violet {
+      background: #a200ff;
+      width: 224px;
+      height: 32px;
+      animation-name: big;
+      animation-duration: 0.5s;
+      animation-timing-function: linear; }
+
+@keyframes big {
+  from {
+    width: 0px; }
+  to {
+    width: 224pxpx; } }
+    .SassComponent .box:hover {
+      background: black; }

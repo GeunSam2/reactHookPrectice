@@ -1,5 +1,9 @@
 import { useMemo, useRef, useReducer } from "react";
-import "./styles/sassComponent.scss";
+import classNames from "classnames/bind";
+import styles from "./styles/sassComponent.module.scss";
+// import styles from "./css/sassComponent.module.css";
+
+const cx = classNames.bind(styles);
 
 const reducer = (state, action) => {
   switch (action.funcName) {
@@ -68,8 +72,8 @@ const getAverage = (numList) => {
   return numSum / numList.length;
 };
 
-const retunColor = (num) => {
-  let color = "box ";
+const returnColor = (num) => {
+  let color = "";
   if (num <= 30) {
     color = color + "red";
   } else if (num <= 70) {
@@ -115,14 +119,14 @@ const Average = () => {
         ref={refVar}
       ></input>
       <button onClick={handleOnClickCust}>평균구하기</button>
-      <div className="numList">
+      <div className={cx("numList")}>
         <ul>
           {states.numList.map((num, index) => (
-            <div className="SassComponent" key={index}>
+            <div className={cx("SassComponent")} key={index}>
               <li onDoubleClick={() => handleOnClickNumCust(index, refVar)}>
                 {index}번째 값: {num}
               </li>
-              <div className={retunColor(num)}></div>
+              <div className={cx("box", returnColor(num))}></div>
             </div>
           ))}
         </ul>

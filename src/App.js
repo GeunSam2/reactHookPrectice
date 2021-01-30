@@ -2,6 +2,7 @@ import logo from "./logo.svg";
 // import { useState } from "react";
 import ErrorBoundary from "./ErrorBoundary";
 import Average from "./CustomAverage";
+import StyledComponents from "./StyledComponents";
 // import Info from "./info";
 // import LifeCycleSample from "./LifeCycleSample";
 // import LiterationSample from "./LiterationSample";
@@ -30,6 +31,9 @@ const App = () => {
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <Average></Average>
+          <StyledComponents inverted={true}>버튼입니다</StyledComponents>
+          <StyledComponents inverted={true}>버튼입니다</StyledComponents>
+          <StyledComponents inverted={true}>버튼입니다</StyledComponents>
         </div>
       </ErrorBoundary>
     </>
